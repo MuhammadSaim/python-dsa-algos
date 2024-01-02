@@ -34,3 +34,13 @@ class SinglyLinkedList:
                   if tmp_head.next:
                         print("->", end=" ")
                   tmp_head = tmp_head.next
+            print("")
+
+      '''
+      A delete function to delete the Head node from the list and
+      make next head node
+      '''
+      def delete_head(self) -> int:
+            current_head = self.head
+            self.head = current_head.next
+            return current_head.data
