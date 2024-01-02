@@ -44,3 +44,26 @@ class SinglyLinkedList:
             current_head = self.head
             self.head = current_head.next
             return current_head.data
+
+      '''
+      A bsic search or you can a squetial search implementation on a
+      SinglyLinkedList
+      '''
+      def search(self, value) -> None:
+            tmp_head = self.head
+            flag = False
+            index = 0
+            # loop through the linkedlist if found the value turn true the flaf
+            while(tmp_head):
+                  index += 1
+                  if tmp_head.data == value:
+                        flag = True
+                        break
+                  else:
+                        flag = False
+                  tmp_head = tmp_head.next
+
+            if flag:
+                  print(f"{value} is found at {index} index")
+            else:
+                  print("No Value found")
