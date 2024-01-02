@@ -1,0 +1,9 @@
+# python's related
+__pycache__/
+
+# vscode
+.vscode
+.history
+
+# jetbrains
+.idea
