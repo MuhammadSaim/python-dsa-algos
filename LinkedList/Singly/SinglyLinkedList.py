@@ -46,6 +46,17 @@ class SinglyLinkedList:
             return current_head.data
 
       '''
+      delete the node at the end of the linkedlist
+      '''
+      def delete_tail(self) -> int:
+            tmp_head = self.head
+            while(tmp_head.next.next is not None):
+                  tmp_head = tmp_head.next
+            data = tmp_head.data
+            tmp_head.next = None
+            return data
+
+      '''
       A bsic search or you can a squetial search implementation on a
       SinglyLinkedList
       '''
