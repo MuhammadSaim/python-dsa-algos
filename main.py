@@ -1,7 +1,9 @@
 from LinkedList.Singly.SinglyLinkedList import SinglyLinkedList
 
 singly_linkedlist = SinglyLinkedList()
-
+singly_linkedlist.display()
+singly_linkedlist.delete_head()
+singly_linkedlist.search(9)
 singly_linkedlist.insert(6)
 singly_linkedlist.insert(5)
 singly_linkedlist.insert(7)
