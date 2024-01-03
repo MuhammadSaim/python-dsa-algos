@@ -6,7 +6,7 @@ A singly linked list and its all operations
 class SinglyLinkedList:
       # a class construtor
       def __init__(self) -> None:
-            self.count = 0
+            self.count = -1
             self.head = None
 
       '''
@@ -67,6 +67,32 @@ class SinglyLinkedList:
                   return data
             else:
                   print("Not able to delete linked list is empty")
+
+      '''
+      delete the node at given index
+      '''
+      def delete_at(self, index) -> int|None:
+            if self.count >= index:
+                  tmp = self.head
+
+                  # check if position is 0 remove the head
+                  if index == 0:
+                        self.head = tmp.next
+                        return tmp.data
+
+                  # loop through the indexes less then given index to get the our point
+                  for idx in range(index - 1):
+                        tmp = tmp.next
+                        if tmp is None:
+                              break
+
+                  next = tmp.next.next
+                  tmp.next = None
+                  tmp.next = next
+
+            else:
+                  print("Location is undefined.")
+
 
       '''
       A bsic search or you can a squetial search implementation on a
