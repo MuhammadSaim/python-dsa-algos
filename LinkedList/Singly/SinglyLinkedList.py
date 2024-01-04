@@ -28,6 +28,36 @@ class SinglyLinkedList:
             self.count += 1
 
       '''
+      An insert method for the linked list
+      responsible for the insert data at the given position of the linkedlist
+      '''
+      def insert_at(self, index, data) -> None:
+            if self.count >= index:
+                  tmp = self.head
+
+                  # check position is at start
+                  if index == 0:
+                        new_node = Node(data)
+                        new_node.next = tmp
+                        self.head = new_node
+                        self.count += 1
+                        return
+
+                  # loop through the list to find the index
+                  for idx in range(index - 1):
+                        tmp = tmp.next
+                        if tmp is None:
+                              break
+
+                  new_node = Node(data)
+                  next = tmp.next
+                  new_node.next = next
+                  tmp.next = new_node
+                  self.count += 1
+            else:
+                  print("Undefined location.")
+
+      '''
       A display method to display all the data of the linkedlist
       '''
       def display(self) -> None:
