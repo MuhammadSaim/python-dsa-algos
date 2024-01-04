@@ -50,6 +50,7 @@ class SinglyLinkedList:
             if self.count > 0:
                   current_head = self.head
                   self.head = current_head.next
+                  self.count -= 0
                   return current_head.data
             else:
                   print("Not able to delete linked list is empty")
@@ -64,6 +65,7 @@ class SinglyLinkedList:
                         tmp_head = tmp_head.next
                   data = tmp_head.data
                   tmp_head.next = None
+                  self.count -= 1
                   return data
             else:
                   print("Not able to delete linked list is empty")
@@ -87,8 +89,11 @@ class SinglyLinkedList:
                               break
 
                   next = tmp.next.next
+                  data = tmp.next.data
                   tmp.next = None
                   tmp.next = next
+                  self.count -= 1
+                  return data
 
             else:
                   print("Location is undefined.")
