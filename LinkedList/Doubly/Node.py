@@ -6,3 +6,6 @@ class Node:
             self.prev = None
             self.data = data
             self.next = None
+
+      def __str__(self) -> str:
+            return '< {previous} ← {data} → {address}>'.format(data=self.data, previous=hex(id(self.prev)), address=hex(id(self.next)))
