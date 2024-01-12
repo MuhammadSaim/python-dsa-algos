@@ -30,6 +30,17 @@ class DoublyLinkedList:
 
 
       '''
+      delete head of the linked list
+      '''
+      def delete_head(self) -> int|None:
+            if self.head:
+                  data = self.head.data
+                  self.head = self.head.next
+                  return data
+            else:
+                  print("Linked list is not initialized yet")
+
+      '''
       delete tail node in dubly linked list
       '''
       def delete_tail(self) -> int|None:
