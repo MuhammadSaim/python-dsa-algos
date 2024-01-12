@@ -13,7 +13,7 @@ class DoublyLinkedList:
       '''
       insert node at the end of the list
       '''
-      def insert(self, data) -> None:
+      def insert(self, data: int) -> None:
 
             new_node = Node(data)
 
@@ -27,6 +27,24 @@ class DoublyLinkedList:
             else:
                   self.head = new_node
                   self.count += 1
+
+
+      '''
+      delete tail node in dubly linked list
+      '''
+      def delete_tail(self) -> int|None:
+            if self.count >= 0:
+                  tmp_node = self.head
+
+                  while(tmp_node.next.next is not None):
+                        tmp_node = tmp_node.next
+
+                  data = tmp_node.data
+                  tmp_node.next = None
+                  self.count -= 1
+                  return data
+            else:
+                  print('Invalid index')
 
       '''
       A display method to display all the data of the linkedlist
