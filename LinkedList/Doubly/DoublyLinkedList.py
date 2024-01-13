@@ -28,6 +28,33 @@ class DoublyLinkedList:
                   self.head = new_node
                   self.count += 1
 
+      '''
+      insert into a specific position of a linked list
+      '''
+      def insert_at(self, index: int, data: int) -> int|None:
+            if self.count >= 0 or self.count <= index:
+                  new_node = Node(data)
+                  if index == 0:
+                        new_node.next = self.head
+                        self.head = new_node
+                        self.count += 1
+                        return new_node.data
+
+                  tmp_node = self.head
+                  for i in range(index - 1):
+                        tmp_node = tmp_node.next
+                        if tmp_node is None:
+                              break
+
+                  next_node = tmp_node.next
+                  new_node.prev = tmp_node
+                  new_node.next = next_node
+                  tmp_node.next = new_node
+                  self.count += 1
+                  return new_node.data
+            else:
+                  print('Invalid index')
+
 
       '''
       delete head of the linked list
