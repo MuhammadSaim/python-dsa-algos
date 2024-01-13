@@ -85,6 +85,34 @@ class DoublyLinkedList:
                   print('Invalid index')
 
       '''
+      delete node in a linked list at specific position
+      '''
+      def delete_at(self, index: int) -> int|None:
+            if self.count >= 0:
+                  tmp_node = self.head
+
+                  if index == 0:
+                        data = self.head.data
+                        self.head = self.head.next
+                        self.count -= 1
+                        return data
+
+                  for i in range(index - 1):
+                        tmp_node = tmp_node.next
+                        if tmp_node is None:
+                              break
+
+                  data = tmp_node.next.data
+                  next = tmp_node.next.next
+                  tmp_node.next = next
+                  next.prev = tmp_node
+                  self.count -= 1
+                  return data
+
+            else:
+                  print('Linked list not created yet.')
+
+      '''
       A display method to display all the data of the linkedlist
       '''
       def display(self) -> None:
