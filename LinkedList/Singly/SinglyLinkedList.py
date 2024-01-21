@@ -6,19 +6,19 @@ A singly linked list and its all operations
 class SinglyLinkedList:
       # a class construtor
       def __init__(self) -> None:
-            self.count = -1
-            self.head = None
+            self.count: int = -1
+            self.head: Node = None
 
       '''
             An insert method for the linked list
             responsible for the insert data at the end of the linkedlist
       '''
       def insert(self, data: int) -> None:
-            new_node = Node(data)
+            new_node: Node = Node(data)
 
             # check head is empty or not
             if self.head:
-                  current_node = self.head
+                  current_node: Node = self.head
                   while(current_node.next):
                         current_node = current_node.next
                   current_node.next = new_node
@@ -33,11 +33,11 @@ class SinglyLinkedList:
       '''
       def insert_at(self, index, data) -> None:
             if self.count >= index:
-                  tmp = self.head
+                  tmp: Node = self.head
 
                   # check position is at start
                   if index == 0:
-                        new_node = Node(data)
+                        new_node: Node = Node(data)
                         new_node.next = tmp
                         self.head = new_node
                         self.count += 1
@@ -49,7 +49,7 @@ class SinglyLinkedList:
                         if tmp is None:
                               break
 
-                  new_node = Node(data)
+                  new_node: Node = Node(data)
                   next = tmp.next
                   new_node.next = next
                   tmp.next = new_node
@@ -62,7 +62,7 @@ class SinglyLinkedList:
       '''
       def display(self) -> None:
             if self.count > 0:
-                  tmp_head = self.head
+                  tmp_head: Node = self.head
                   while(tmp_head):
                         print(tmp_head.data, end=" ")
                         if tmp_head.next:
@@ -78,7 +78,7 @@ class SinglyLinkedList:
       '''
       def delete_head(self) -> int|None:
             if self.count > 0:
-                  current_head = self.head
+                  current_head: Node = self.head
                   self.head = current_head.next
                   self.count -= 0
                   return current_head.data
@@ -90,10 +90,10 @@ class SinglyLinkedList:
       '''
       def delete_tail(self) -> int|None:
             if self.count > 0:
-                  tmp_head = self.head
+                  tmp_head: Node = self.head
                   while(tmp_head.next.next is not None):
                         tmp_head = tmp_head.next
-                  data = tmp_head.data
+                  data: int = tmp_head.data
                   tmp_head.next = None
                   self.count -= 1
                   return data
@@ -105,7 +105,7 @@ class SinglyLinkedList:
       '''
       def delete_at(self, index) -> int|None:
             if self.count >= index:
-                  tmp = self.head
+                  tmp: Node = self.head
 
                   # check if position is 0 remove the head
                   if index == 0:
@@ -118,8 +118,8 @@ class SinglyLinkedList:
                         if tmp is None:
                               break
 
-                  next = tmp.next.next
-                  data = tmp.next.data
+                  next: Node = tmp.next.next
+                  data: int = tmp.next.data
                   tmp.next = None
                   tmp.next = next
                   self.count -= 1
@@ -135,9 +135,9 @@ class SinglyLinkedList:
       '''
       def search(self, value) -> None:
             if self.count > 0:
-                  tmp_head = self.head
-                  flag = False
-                  index = 0
+                  tmp_head: Node = self.head
+                  flag: bool = False
+                  index: int = 0
                   # loop through the linkedlist if found the value turn true the flaf
                   while(tmp_head):
                         index += 1
