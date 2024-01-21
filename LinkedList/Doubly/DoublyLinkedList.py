@@ -113,6 +113,34 @@ class DoublyLinkedList:
                   print('Linked list not created yet.')
 
       '''
+      A bsic search or you can a squetial search implementation on a
+      DoublyLinkedList
+      '''
+      def search(self, value: int) -> None:
+            if self.count > 0:
+                  tmp_head = self.head
+                  flag: bool = False
+                  index: int = 0
+
+                  while(tmp_head):
+                        index += 1
+                        if tmp_head.data == value:
+                              flag = True
+                              break
+                        else:
+                              flag = False
+                        tmp_head = tmp_head.next
+
+                  if(flag):
+                        print(f"{value} is found at {index} index")
+                  else:
+                        print("No Value found")
+
+            else:
+                  print("Linked list is empty not able to perform search.")
+
+
+      '''
       A display method to display all the data of the linkedlist
       '''
       def display(self) -> None:
